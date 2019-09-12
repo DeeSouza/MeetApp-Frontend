@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
@@ -6,7 +7,13 @@ import { FaSpinner } from 'react-icons/fa';
 import Logo from '../../assets/images/meetapp-logo.svg';
 import { ButtonSubmit } from '../../components/ButtonSubmit';
 
+import { createUserRequest } from '../../store/modules/user/actions';
+
 export default function Register() {
+	const loading = useSelector(state => state.user.loading);
+	const dispatch = useDispatch();
+
+	// Validation Form Create User
 	const schema = Yup.object().shape({
 		name: Yup.string().required('O campo nome é obrigatório.'),
 		email: Yup.string()
@@ -17,8 +24,8 @@ export default function Register() {
 			.required('O campo senha é obrigatório.'),
 	});
 
-	function handleSubmitForm(data) {
-		console.tron.log(data);
+	function handleSubmitForm({ name, email, password }) {
+		dispatch(createUserRequest(name, email, password));
 	}
 
 	return (
@@ -47,8 +54,9 @@ export default function Register() {
 				/>
 
 				<ButtonSubmit type="submit">
-					{1 !== 1 ? <FaSpinner size={18} color="#FFF" /> : 'CRIAR'}
+					{loading ? <FaSpinner size={18} color="#FFF" /> : 'CRIAR'}
 				</ButtonSubmit>
+
 				<Link to="/">JÁ TENHO UMA CONTA</Link>
 			</Form>
 		</>

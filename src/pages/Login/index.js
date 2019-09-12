@@ -52,6 +52,7 @@ export default function Login() {
 				<ButtonSubmit type="submit" disabled={loading}>
 					{loading ? <FaSpinner size={18} color="#FFF" /> : 'ACESSAR'}
 				</ButtonSubmit>
+
 				<Link to="/register">CRIAR CONTA GRATUITA</Link>
 			</Form>
 		</>
