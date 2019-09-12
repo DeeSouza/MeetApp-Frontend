@@ -69,6 +69,12 @@ export const ContentWrapper = styled.div`
 			}
 		}
 
+		span {
+			text-align: left;
+			color: #fff;
+			margin: 0px 0px 10px;
+		}
+
 		button {
 			background-color: ${settings.primaryColor};
 			height: 50px;
