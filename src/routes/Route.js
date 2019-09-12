@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 // Templates
 import AuthLayout from '../pages/templates/auth';
 import MasterLayout from '../pages/templates/master';
+
+// Load Store Redux
+import { store } from '../store';
 
 export default function RouteWrapper({
 	component: Component,
@@ -12,7 +15,15 @@ export default function RouteWrapper({
 	...rest
 }) {
 	// Control if user is checked
-	const { signed } = false;
+	const { signed } = store.getState().auth;
+
+	if (!signed && isPrivate) {
+		return <Redirect to="/" />;
+	}
+
+	if (signed && !isPrivate) {
+		return <Redirect to="/dashboard" />;
+	}
 
 	// Template
 	const Layout = signed ? MasterLayout : AuthLayout;

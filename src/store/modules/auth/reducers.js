@@ -13,6 +13,12 @@ export default function login(state = INITIAL_STATE, action) {
 				draft.loading = true;
 				break;
 			}
+			case '@auth/LOGIN_SUCCESS': {
+				draft.token = action.payload.token;
+				draft.loading = false;
+				draft.signed = true;
+				break;
+			}
 			case '@auth/LOGIN_FAILURE': {
 				draft.loading = false;
 				break;
