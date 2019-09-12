@@ -2,9 +2,17 @@ import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
+import { FaSpinner } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginRequest } from '../../store/modules/auth/actions';
+
+import { ButtonSubmit } from './styles';
 import Logo from '../../assets/images/meetapp-logo.svg';
 
 export default function Login() {
+	const dispatch = useDispatch(); // Actions
+	const loading = useSelector(state => state.auth.loading);
+
 	const schema = Yup.object().shape({
 		email: Yup.string()
 			.required('O campo e-mail é obrigatório.')
@@ -18,7 +26,7 @@ export default function Login() {
 	 * @param {string} password
 	 */
 	function handleSubmitForm({ email, password }) {
-		console.tron.log(email, password);
+		dispatch(loginRequest(email, password));
 	}
 
 	return (
@@ -41,7 +49,9 @@ export default function Login() {
 					placeholder="Digite sua senha"
 				/>
 
-				<button type="submit">ENTRAR</button>
+				<ButtonSubmit type="submit" disabled={loading}>
+					{loading ? <FaSpinner size={18} color="#FFF" /> : 'ACESSAR'}
+				</ButtonSubmit>
 				<Link to="/register">CRIAR CONTA GRATUITA</Link>
 			</Form>
 		</>

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 import settings from '../../../styles/variables';
 
 export const WrapperLayout = styled.div`
@@ -73,22 +72,6 @@ export const ContentWrapper = styled.div`
 			text-align: left;
 			color: #fff;
 			margin: 0px 0px 10px;
-		}
-
-		button {
-			background-color: ${settings.primaryColor};
-			height: 50px;
-			transition: all 0.25s ease-out;
-			color: #fff;
-			border: none;
-			border-radius: 5px;
-			font-size: 15px;
-			font-weight: bold;
-			width: 100%;
-
-			&:hover {
-				background-color: ${darken(0.04, settings.primaryColor)};
-			}
 		}
 
 		a {
