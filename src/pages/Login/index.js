@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/meetapp-logo.svg';
 
 export default function Login() {
@@ -20,6 +21,7 @@ export default function Login() {
 				/>
 
 				<button type="button">ENTRAR</button>
+				<Link to="/register">CRIAR CONTA GRATUITA</Link>
 			</Form>
 		</>
 	);
