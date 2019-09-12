@@ -6,7 +6,7 @@ import { FaSpinner } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginRequest } from '../../store/modules/auth/actions';
 
-import { ButtonSubmit } from './styles';
+import { ButtonSubmit } from '../../components/ButtonSubmit';
 import Logo from '../../assets/images/meetapp-logo.svg';
 
 export default function Login() {

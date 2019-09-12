@@ -2,7 +2,9 @@ import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
+import { FaSpinner } from 'react-icons/fa';
 import Logo from '../../assets/images/meetapp-logo.svg';
+import { ButtonSubmit } from '../../components/ButtonSubmit';
 
 export default function Register() {
 	const schema = Yup.object().shape({
@@ -44,7 +46,9 @@ export default function Register() {
 					placeholder="Digite sua senha"
 				/>
 
-				<button type="submit">CRIAR</button>
+				<ButtonSubmit type="submit">
+					{1 !== 1 ? <FaSpinner size={18} color="#FFF" /> : 'CRIAR'}
+				</ButtonSubmit>
 				<Link to="/">JÁ TENHO UMA CONTA</Link>
 			</Form>
 		</>
