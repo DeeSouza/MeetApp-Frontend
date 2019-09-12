@@ -4,11 +4,18 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/meetapp-logo.svg';
 
 export default function Login() {
+	/**
+	 * Authentication user in platform
+	 * @param {string} email
+	 * @param {string} password
+	 */
+	function handleSubmitForm({ email, password }) {}
+
 	return (
 		<>
-			<img src={Logo} alt="MeetApp" />
+			<img src={Logo} alt="MeetApp - Network Infinite" />
 
-			<Form autoComplete="off">
+			<Form autoComplete="off" onSubmit={handleSubmitForm}>
 				<Input
 					name="email"
 					type="text"
@@ -20,7 +27,7 @@ export default function Login() {
 					placeholder="Digite sua senha"
 				/>
 
-				<button type="button">ENTRAR</button>
+				<button type="submit">ENTRAR</button>
 				<Link to="/register">CRIAR CONTA GRATUITA</Link>
 			</Form>
 		</>
