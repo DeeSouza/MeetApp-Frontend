@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Dashboard() {
-	return <div>das</div>;
+	return <h1>2oi</h1>;
 }

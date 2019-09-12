@@ -31,5 +31,22 @@ export function* doLogin({ payload }) {
 	}
 }
 
+/**
+ * Action dispatched by Redux
+ * @param {object} payload Object of data
+ */
+export function setToken({ payload }) {
+	if (!payload) return;
+
+	const { token } = payload.auth;
+
+	if (token) {
+		api.defaults.headers.Authorization = `Bearer ${token}`;
+	}
+}
+
 // Observers
-export default all([takeLatest('@auth/LOGIN_REQUEST', doLogin)]);
+export default all([
+	takeLatest('@auth/LOGIN_REQUEST', doLogin),
+	takeLatest('persist/REHYDRATE', setToken),
+]);
