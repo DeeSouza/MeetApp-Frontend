@@ -1,6 +1,9 @@
 import React from 'react';
 import { Router } from 'react-router-dom';
 
+// Config Reactotron
+import './config/ReactotronConfig';
+
 // Routes with components
 import Routes from './routes';
 import history from './services/history';
