@@ -21,7 +21,7 @@ export default function Register() {
 
 	return (
 		<>
-			<img src={Logo} alt="MeetApp" />
+			<img src={Logo} alt="MeetApp - Networking Infinite" />
 
 			<Form
 				autoComplete="off"

@@ -23,7 +23,7 @@ export default function Login() {
 
 	return (
 		<>
-			<img src={Logo} alt="MeetApp - Network Infinite" />
+			<img src={Logo} alt="MeetApp - Networking Infinite" />
 
 			<Form
 				autoComplete="off"
