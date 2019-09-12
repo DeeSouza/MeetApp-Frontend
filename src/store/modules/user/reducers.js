@@ -20,6 +20,10 @@ export default function user(state = INITIAL_STATE, action) {
 				draft.loading = false;
 				break;
 			}
+			case '@auth/LOGIN_SUCCESS': {
+				draft.profile = action.payload.user;
+				break;
+			}
 			default:
 		}
 	});

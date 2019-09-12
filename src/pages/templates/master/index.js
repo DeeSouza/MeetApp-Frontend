@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Header from '../../../components/Header';
 import { WrapperLayout, ContentWrapper } from './styles';
 
 export default function MasterLayout({ children }) {
 	return (
 		<WrapperLayout>
-			<ContentWrapper>{children}</ContentWrapper>
+			<ContentWrapper>
+				<Header />
+
+				{children}
+			</ContentWrapper>
 		</WrapperLayout>
 	);
 }

@@ -20,6 +20,7 @@ export const ContentWrapper = styled.div`
 	text-align: center;
 
 	img {
+		width: 42px;
 		transform: scale(1);
 		transition: all 0.25s ease-in-out;
 
