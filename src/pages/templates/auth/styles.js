@@ -32,18 +32,18 @@ export const ContentWrapper = styled.div`
 	form {
 		display: flex;
 		flex-direction: column;
-		margin-top: 60px;
+		margin-top: 20px;
 		transition: all 0.3s ease-in;
 		animation: upForm 0.7s forwards;
 		opacity: 0.5;
 
 		@keyframes upForm {
 			from {
-				margin-top: 30px;
+				margin-top: 20px;
 				opacity: 0;
 			}
 			to {
-				margin-top: 60px;
+				margin-top: 50px;
 				opacity: 1;
 			}
 		}
