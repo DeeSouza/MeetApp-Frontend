@@ -17,3 +17,9 @@ export function loginFailure() {
 		type: '@auth/LOGIN_FAILURE',
 	};
 }
+
+export function logoutRequest() {
+	return {
+		type: '@auth/LOGOUT_REQUEST',
+	};
+}

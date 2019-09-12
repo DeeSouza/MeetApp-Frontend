@@ -1,12 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container, Wrapper, Profile } from './styles';
-
+import { logoutRequest } from '../../store/modules/auth/actions';
 import logo from '../../assets/images/meetapp-logo.svg';
 
 export default function Header() {
+	const dispatch = useDispatch();
 	const profile = useSelector(state => state.user.profile);
+
+	function handleLogout() {
+		dispatch(logoutRequest());
+	}
 
 	return (
 		<Container>
@@ -21,7 +26,9 @@ export default function Header() {
 						<Link to="/profile">MEU PERFIL</Link>
 					</div>
 
-					<button type="button">SAIR</button>
+					<button type="button" onClick={handleLogout}>
+						SAIR
+					</button>
 				</Profile>
 			</Wrapper>
 		</Container>

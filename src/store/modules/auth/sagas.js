@@ -45,8 +45,13 @@ export function setToken({ payload }) {
 	}
 }
 
+export function logoutApp() {
+	history.push('/');
+}
+
 // Observers
 export default all([
 	takeLatest('@auth/LOGIN_REQUEST', doLogin),
 	takeLatest('persist/REHYDRATE', setToken),
+	takeLatest('@auth/LOGOUT_REQUEST', logoutApp),
 ]);
