@@ -4,4 +4,5 @@ export default {
 	infoColor: '#4DBAF9',
 	linearGradientPrimary: '#402845',
 	linearGradiendSecondary: '#22202c',
+	fontRoboto: 'Roboto',
 };
