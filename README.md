@@ -1,4 +1,4 @@
-# MEETUP - FRONTEND
+# MEETAPP - FRONTEND WEB
 
 ![reactbadge](https://img.shields.io/badge/16.9.0-React-blue?style=flat-square&logo=react)
 ![reactbadge](https://img.shields.io/badge/1.38.0-version-orange?style=flat-square&logo=visual-studio-code)
