@@ -14,7 +14,7 @@ export const WrapperLayout = styled.div`
 	height: 100%;
 `;
 
-export const ContentWrapper = styled.div`
+export const MainWrapper = styled.main`
 	width: 90%;
 	max-width: 315px;
 	text-align: center;
