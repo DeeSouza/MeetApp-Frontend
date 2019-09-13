@@ -11,6 +11,9 @@ import Register from '../pages/Register';
 // Páginas User Logged
 import Dashboard from '../pages/Dashboard';
 
+// Páginas Meetup
+import ShowMeetup from '../pages/Meetups/Show';
+
 export default function Routes() {
 	return (
 		<Switch>
@@ -18,6 +21,7 @@ export default function Routes() {
 			<Route path="/register" component={Register} />
 
 			<Route path="/dashboard" isPrivate component={Dashboard} />
+			<Route path="/meetups/:id" isPrivate component={ShowMeetup} />
 		</Switch>
 	);
 }

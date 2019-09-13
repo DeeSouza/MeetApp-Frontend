@@ -14,7 +14,7 @@ export const ButtonSubmit = styled.button`
 	width: 100%;
 
 	&:hover {
-		background-color: ${darken(0.04, settings.primaryColor)};
+		background-color: ${darken(0.08, settings.primaryColor)};
 	}
 
 	&:disabled {

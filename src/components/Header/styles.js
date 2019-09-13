@@ -70,7 +70,7 @@ export const Profile = styled.div`
 		transition: all 0.25s ease-in;
 
 		&:hover {
-			background-color: ${darken(0.05, settings.primaryColor)};
+			background-color: ${darken(0.08, settings.primaryColor)};
 		}
 	}
 `;

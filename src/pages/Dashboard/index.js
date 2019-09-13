@@ -5,6 +5,7 @@ import { MdAddCircleOutline, MdChevronRight } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { Container, ListMeet, Meet } from './styles';
 import { TitlePage } from '../../components/TitlePage';
+import { Button } from '../../components/Button';
 import Loading from '../../components/Loading';
 
 import api from '../../services/api';
@@ -17,9 +18,8 @@ export default function Dashboard() {
 	 * Get meetups from user logged is owner
 	 */
 	useEffect(() => {
-		setLoading(true);
-
-		async function loadMeetups() {
+		const loadMeetups = async () => {
+			setLoading(true);
 			const response = await api.get('users/meetups_owner');
 
 			const data = response.data.map(meet => {
@@ -35,7 +35,7 @@ export default function Dashboard() {
 
 			setMeetups(data);
 			setLoading(false);
-		}
+		};
 
 		loadMeetups();
 	}, []);
@@ -44,10 +44,10 @@ export default function Dashboard() {
 		<Container>
 			<TitlePage>
 				<h1>MEUS MEETUPS</h1>
-				<button type="button">
+				<Button type="button" secondary>
 					<MdAddCircleOutline color="#FFf" size={16} />
 					NOVO MEETUP
-				</button>
+				</Button>
 			</TitlePage>
 
 			{loading ? (
