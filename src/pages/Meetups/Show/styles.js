@@ -36,13 +36,27 @@ export const Details = styled.div`
 		}
 
 		&.info {
-			padding: 0px 50px;
 			color: rgba(255, 255, 255, 0.6);
 			margin-top: 40px;
+			display: flex;
+
+			time {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 
 			strong {
 				margin-left: 100px;
 				font-weight: normal;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			svg {
+				fill: rgba(255, 255, 255, 0.6);
+				margin-right: 10px;
 			}
 		}
 	}

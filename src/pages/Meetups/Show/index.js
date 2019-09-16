@@ -3,12 +3,19 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
 import { pt } from 'date-fns/locale';
-import { MdEdit, MdDeleteForever, MdChevronLeft } from 'react-icons/md';
+import {
+	MdEdit,
+	MdDeleteForever,
+	MdChevronLeft,
+	MdEvent,
+	MdPlace,
+} from 'react-icons/md';
 import { Container, Details } from './styles';
 import { TitlePage } from '../../../components/TitlePage';
 import { Button } from '../../../components/Button';
 import Loading from '../../../components/Loading';
 import api from '../../../services/api';
+import history from '../../../services/history';
 
 export default function Show({ match }) {
 	const [meetup, setMeetup] = useState({});
@@ -39,6 +46,14 @@ export default function Show({ match }) {
 		loadDetailMeetup();
 	}, [id]);
 
+	function handleEditMeetup() {
+		history.push(`/meetups/edit/${id}`);
+	}
+
+	function handleCancel() {
+		history.push('/meetups/');
+	}
+
 	return (
 		<Container>
 			<TitlePage>
@@ -48,11 +63,11 @@ export default function Show({ match }) {
 					</Link>
 					{meetup.title}
 				</h1>
-				<Button type="button" info>
+				<Button type="button" info onClick={handleEditMeetup}>
 					<MdEdit color="#FFf" size={16} />
 					EDITAR
 				</Button>
-				<Button type="button" primary>
+				<Button type="button" primary onClick={handleCancel}>
 					<MdDeleteForever color="#FFf" size={16} />
 					CANCELAR
 				</Button>
@@ -70,8 +85,14 @@ export default function Show({ match }) {
 
 					<div className="description">{meetup.description}</div>
 					<div className="info">
-						<time>{meetup.date}</time>
-						<strong>{meetup.localization}</strong>
+						<time>
+							<MdEvent size={18} />
+							{meetup.date}
+						</time>
+						<strong>
+							<MdPlace size={18} />
+							{meetup.localization}
+						</strong>
 					</div>
 				</Details>
 			)}

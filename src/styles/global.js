@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import settings from './variables';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default createGlobalStyle`
 	@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap');
