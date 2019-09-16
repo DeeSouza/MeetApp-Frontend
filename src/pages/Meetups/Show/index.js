@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
 import { pt } from 'date-fns/locale';
-import { MdEdit, MdDeleteForever } from 'react-icons/md';
+import { MdEdit, MdDeleteForever, MdChevronLeft } from 'react-icons/md';
 import { Container, Details } from './styles';
 import { TitlePage } from '../../../components/TitlePage';
 import { Button } from '../../../components/Button';
@@ -41,7 +42,12 @@ export default function Show({ match }) {
 	return (
 		<Container>
 			<TitlePage>
-				<h1>{meetup.title}</h1>
+				<h1>
+					<Link to="/">
+						<MdChevronLeft color="#FFF" size={28} />
+					</Link>
+					{meetup.title}
+				</h1>
 				<Button type="button" info>
 					<MdEdit color="#FFf" size={16} />
 					EDITAR
