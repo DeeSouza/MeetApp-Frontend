@@ -23,7 +23,12 @@ export default function FormMeet({ meet }) {
 
 	return (
 		<Container>
-			<Form initialData={meet} schema={schema} onSubmit={handleSubmit}>
+			<Form
+				initialData={meet}
+				schema={schema}
+				onSubmit={handleSubmit}
+				autoComplete="off"
+			>
 				<CoverInput name="file_id" />
 
 				<Input name="title" placeholder="Título do Meetup" />
