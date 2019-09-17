@@ -45,7 +45,7 @@ export default function Edit({ match }) {
 				</h1>
 			</TitlePage>
 
-			{loading ? <Loading /> : <FormMeet data={meetup} />}
+			{loading ? <Loading /> : <FormMeet meet={meetup} />}
 		</Container>
 	);
 }
