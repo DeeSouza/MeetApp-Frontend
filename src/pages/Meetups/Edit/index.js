@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MdChevronLeft } from 'react-icons/md';
-import { parseISO } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import Loading from '../../../components/Loading';
 import { TitlePage } from '../../../components/TitlePage';
 import FormMeet from '../../../components/FormMeet';
@@ -36,7 +36,9 @@ export default function Edit({ match }) {
 
 	function handleSubmit(data) {
 		console.tron.log(data);
-		console.tron.log(data.date);
+		console.tron.log(
+			format(new Date(data.date), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx")
+		);
 	}
 
 	return (
