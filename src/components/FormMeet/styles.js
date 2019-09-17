@@ -5,7 +5,7 @@ export const Container = styled.div`
 	form {
 		display: flex;
 		flex-direction: column;
-		margin-top: 20px;
+		margin: 20px 0px;
 		transition: all 0.3s ease-in;
 		animation: upForm 0.7s forwards;
 		opacity: 0.5;

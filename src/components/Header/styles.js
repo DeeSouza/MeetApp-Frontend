@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { darken, lighten } from 'polished';
 import settings from '../../styles/variables';
 
@@ -8,6 +8,13 @@ export const Container = styled.header`
 	left: 0;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.3);
+	transition: all 0.25s ease-in;
+
+	${props =>
+		props.top > 75 &&
+		css`
+			background-color: rgba(0, 0, 0, 1);
+		`}
 `;
 
 export const Wrapper = styled.div`
@@ -18,6 +25,13 @@ export const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	transition: all 0.25s ease-in;
+
+	${props =>
+		props.top > 75 &&
+		css`
+			height: 60px;
+		`}
 
 	img {
 		width: 32px;

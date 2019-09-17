@@ -6,12 +6,12 @@ export const WrapperLayout = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	min-height: 100%;
 	background: linear-gradient(
 		0deg,
 		${settings.linearGradientPrimary},
 		${settings.linearGradiendSecondary}
 	);
-	height: 100%;
 `;
 
 export const MainWrapper = styled.main`

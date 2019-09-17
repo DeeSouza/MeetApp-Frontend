@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import settings from '../../../styles/variables';
 
 export const WrapperLayout = styled.div`
+	min-height: 100%;
 	background: linear-gradient(
 		0deg,
 		${settings.linearGradientPrimary},
 		${settings.linearGradiendSecondary}
 	);
-	height: 100%;
 `;
 
 export const MainWrapper = styled.main`

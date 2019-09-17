@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MdChevronLeft } from 'react-icons/md';
-import { zonedTimeToUtc } from 'date-fns-tz';
+import { parseISO } from 'date-fns';
 import Loading from '../../../components/Loading';
 import { TitlePage } from '../../../components/TitlePage';
 import FormMeet from '../../../components/FormMeet';
@@ -23,16 +23,21 @@ export default function Edit({ match }) {
 			setLoading(true);
 
 			const response = await api.get(`/meetups/${id}`);
-			const { data } = response;
+			const meet = response.data;
 
-			data.date = zonedTimeToUtc(data.date, 'America/Sao_Paulo');
+			meet.date = parseISO(meet.date);
 
-			setMeetup(data);
+			setMeetup(meet);
 			setLoading(false);
 		};
 
 		loadDetailMeetup();
 	}, [id]);
+
+	function handleSubmit(data) {
+		console.tron.log(data);
+		console.tron.log(data.date);
+	}
 
 	return (
 		<Container>
@@ -45,7 +50,11 @@ export default function Edit({ match }) {
 				</h1>
 			</TitlePage>
 
-			{loading ? <Loading /> : <FormMeet meet={meetup} />}
+			{loading ? (
+				<Loading />
+			) : (
+				<FormMeet meet={meetup} onSubmit={handleSubmit} />
+			)}
 		</Container>
 	);
 }

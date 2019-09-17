@@ -13,20 +13,18 @@ const schema = Yup.object().shape({
 	file_id: Yup.string().required('Esse campo é obrigatório.'),
 	localization: Yup.string().required('Esse campo é obrigatório.'),
 	description: Yup.string().required('Esse campo é obrigatório.'),
-	date: Yup.string().required('Esse campo é obrigatório.'),
+	date: Yup.string('Esse campo é obrigatório.').required(
+		'Esse campo é obrigatório.'
+	),
 });
 
-export default function FormMeet({ meet }) {
-	function handleSubmit(data) {
-		console.tron.log(data);
-	}
-
+export default function FormMeet({ meet, onSubmit }) {
 	return (
 		<Container>
 			<Form
 				initialData={meet}
 				schema={schema}
-				onSubmit={handleSubmit}
+				onSubmit={onSubmit}
 				autoComplete="off"
 			>
 				<CoverInput name="file_id" />
@@ -62,4 +60,5 @@ FormMeet.propTypes = {
 		localization: PropTypes.string,
 		date: PropTypes.instanceOf(Date),
 	}).isRequired,
+	onSubmit: PropTypes.func.isRequired,
 };

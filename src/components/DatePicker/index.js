@@ -8,9 +8,10 @@ import pt from 'date-fns/locale/pt';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export default function DatePicker({ name }) {
-	const ref = useRef(null);
 	const { fieldName, registerField, defaultValue, error } = useField(name);
 	const [selected, setSelected] = useState(defaultValue);
+
+	const ref = useRef();
 
 	registerLocale('pt-BR', pt);
 
