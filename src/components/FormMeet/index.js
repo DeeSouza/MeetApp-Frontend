@@ -18,7 +18,7 @@ const schema = Yup.object().shape({
 	),
 });
 
-export default function FormMeet({ meet, onSubmit }) {
+export default function FormMeet({ meet, onSubmit, loading }) {
 	return (
 		<Container>
 			<Form
@@ -46,7 +46,7 @@ export default function FormMeet({ meet, onSubmit }) {
 
 				<Button info type="submit">
 					<MdSave color="#FFf" size={16} />
-					SALVAR MEETUP
+					{loading ? 'CARREGANDO' : 'SALVAR MEETUP'}
 				</Button>
 			</Form>
 		</Container>
@@ -61,4 +61,5 @@ FormMeet.propTypes = {
 		date: PropTypes.instanceOf(Date),
 	}).isRequired,
 	onSubmit: PropTypes.func.isRequired,
+	loading: PropTypes.bool.isRequired,
 };

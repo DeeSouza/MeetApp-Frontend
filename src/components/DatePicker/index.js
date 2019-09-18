@@ -40,7 +40,7 @@ export default function DatePicker({ name }) {
 				dateFormat="Pp"
 				minDate={subDays(new Date(), 0)}
 			/>
-			{error && <span>{error}</span>}
+			{error && <span>Esse campo é obrigatório</span>}
 		</>
 	);
 }

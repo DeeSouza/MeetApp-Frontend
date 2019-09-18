@@ -10,6 +10,20 @@ export const ListMeet = styled.ul`
 	margin-top: 40px;
 `;
 
+export const NotMeet = styled.div`
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: row;
+	display: flex;
+
+	strong {
+		color: #fff;
+		margin-left: 10px;
+		font-size: 20px;
+		font-weight: lighter;
+	}
+`;
+
 export const Meet = styled.li`
 	height: 62px;
 	background-color: rgba(0, 0, 0, 0.1);
