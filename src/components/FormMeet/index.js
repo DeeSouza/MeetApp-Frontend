@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Form, Input } from '@rocketseat/unform';
 import { MdSave } from 'react-icons/md';
+import { FaSpinner } from 'react-icons/fa';
 import * as Yup from 'yup';
 import { Container } from './styles';
 import { Button } from '../Button';
@@ -44,9 +45,13 @@ export default function FormMeet({ meet, onSubmit, loading }) {
 					placeholder="Localização do Meetup"
 				/>
 
-				<Button info type="submit">
-					<MdSave color="#FFf" size={16} />
-					{loading ? 'CARREGANDO' : 'SALVAR MEETUP'}
+				<Button info type="submit" loading={loading}>
+					{loading ? (
+						<FaSpinner color="#FFF" size={16} />
+					) : (
+						<MdSave color="#FFf" size={16} />
+					)}
+					SALVAR MEETUP
 				</Button>
 			</Form>
 		</Container>

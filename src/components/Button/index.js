@@ -46,5 +46,20 @@ export const Button = styled.button`
 
 	svg {
 		margin-right: 5px;
+
+		${props =>
+			props.loading &&
+			css`
+				animation: loading 1s infinite linear;
+
+				@keyframes loading {
+					from {
+						transform: rotate(0deg);
+					}
+					to {
+						transform: rotate(359deg);
+					}
+				}
+			`}
 	}
 `;
