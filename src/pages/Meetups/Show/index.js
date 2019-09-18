@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { format, parseISO } from 'date-fns';
+import { format, parseISO, isBefore } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import {
 	MdEdit,
@@ -33,6 +33,8 @@ export default function Show({ match }) {
 			const response = await api.get(`/meetups/${id}`);
 			const { data } = response;
 
+			data.passed = isBefore(parseISO(data.date), new Date());
+
 			data.date = format(
 				parseISO(data.date),
 				"d 'de' MMMM', às ' H'hs'",
@@ -63,14 +65,18 @@ export default function Show({ match }) {
 					</Link>
 					{meetup.title}
 				</h1>
-				<Button type="button" info onClick={handleEditMeetup}>
-					<MdEdit color="#FFf" size={16} />
-					EDITAR
-				</Button>
-				<Button type="button" primary onClick={handleCancel}>
-					<MdDeleteForever color="#FFf" size={16} />
-					CANCELAR
-				</Button>
+				{!meetup.passed && (
+					<>
+						<Button type="button" info onClick={handleEditMeetup}>
+							<MdEdit color="#FFf" size={16} />
+							EDITAR
+						</Button>
+						<Button type="button" primary onClick={handleCancel}>
+							<MdDeleteForever color="#FFf" size={16} />
+							CANCELAR
+						</Button>
+					</>
+				)}
 			</TitlePage>
 
 			{loading ? (

@@ -34,6 +34,7 @@ export const Meet = styled.li`
 	transition: all 0.25s ease-out;
 	border-left: 0px solid transparent;
 	cursor: pointer;
+	opacity: ${props => (props.passed ? 0.6 : 1)};
 
 	&:hover {
 		background-color: rgba(0, 0, 0, 0.3);

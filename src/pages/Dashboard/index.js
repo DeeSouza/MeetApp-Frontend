@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { format, parseISO } from 'date-fns';
+import { format, parseISO, isBefore } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import {
 	MdAddCircleOutline,
@@ -36,6 +36,7 @@ export default function Dashboard() {
 						"d 'de' MMMM', às ' H'hs'",
 						{ locale: pt }
 					),
+					passed: isBefore(parseISO(meet.date), new Date()),
 				};
 			});
 
@@ -67,7 +68,7 @@ export default function Dashboard() {
 						</NotMeet>
 					) : (
 						meetups.map(meet => (
-							<Meet key={String(meet.id)}>
+							<Meet key={String(meet.id)} passed={meet.passed}>
 								<Link to={`/meetups/${meet.id}`}>
 									<strong>{meet.title}</strong>
 									<time>{meet.date}</time>
