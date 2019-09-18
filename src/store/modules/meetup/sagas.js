@@ -1,8 +1,17 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 import api from '../../../services/api';
-import { meetUpdateSuccess, meetUpdateFailure } from './actions';
+import {
+	meetUpdateSuccess,
+	meetUpdateFailure,
+	meetCancelSuccess,
+	meetCancelFailure,
+} from './actions';
 
+/**
+ * Update meetup
+ * @param {object} payload Data from meet
+ */
 export function* updateMeet({ payload }) {
 	try {
 		const response = yield call(
@@ -17,6 +26,22 @@ export function* updateMeet({ payload }) {
 	} catch (error) {
 		// Call Action (PUT)
 		yield put(meetUpdateFailure());
+
+		// Alert
+		toast.error(error.response.data.error);
+	}
+}
+
+export function* cancelMeet({ payload }) {
+	try {
+		yield call(api.delete, `meetups/${payload.id}`);
+
+		toast.success('Yeeah! MeetUp cancelado com sucesso!');
+
+		yield put(meetCancelSuccess());
+	} catch (error) {
+		// Call Action (PUT)
+		yield put(meetCancelFailure());
 
 		// Alert
 		toast.error(error.response.data.error);

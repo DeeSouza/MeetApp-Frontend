@@ -65,6 +65,7 @@ export default function Show({ match }) {
 					</Link>
 					{meetup.title}
 				</h1>
+
 				{!meetup.passed && (
 					<>
 						<Button type="button" info onClick={handleEditMeetup}>

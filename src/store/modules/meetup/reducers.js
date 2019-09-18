@@ -16,6 +16,15 @@ export default function meet(state = INITIAL_STATE, action) {
 			case '@meet/UPDATE_FAILURE':
 				draft.loading = false;
 				break;
+			case '@meet/CANCEL_REQUEST':
+				draft.loading = true;
+				break;
+			case '@meet/CANCEL_SUCCESS':
+				draft.loading = true;
+				break;
+			case '@meet/CANCEL_FAILURE':
+				draft.loading = true;
+				break;
 			default:
 		}
 	});
