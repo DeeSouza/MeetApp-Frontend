@@ -1,6 +1,7 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 import api from '../../../services/api';
+import history from '../../../services/history';
 import {
 	meetUpdateSuccess,
 	meetUpdateFailure,
@@ -20,7 +21,7 @@ export function* updateMeet({ payload }) {
 			payload.meet
 		);
 
-		toast.success('Yeeah! MeetUp atualizado com sucesso!');
+		toast.success('Yeeah! Meetup atualizado com sucesso!');
 
 		yield put(meetUpdateSuccess(response));
 	} catch (error) {
@@ -36,7 +37,9 @@ export function* cancelMeet({ payload }) {
 	try {
 		yield call(api.delete, `meetups/${payload.id}`);
 
-		toast.success('Yeeah! MeetUp cancelado com sucesso!');
+		toast.success('Yeeah! Meetup cancelado com sucesso!');
+
+		history.push('/dashboard');
 
 		yield put(meetCancelSuccess());
 	} catch (error) {
@@ -49,4 +52,7 @@ export function* cancelMeet({ payload }) {
 }
 
 // Observers
-export default all([takeLatest('@meet/UPDATE_REQUEST', updateMeet)]);
+export default all([
+	takeLatest('@meet/UPDATE_REQUEST', updateMeet),
+	takeLatest('@meet/CANCEL_REQUEST', cancelMeet),
+]);

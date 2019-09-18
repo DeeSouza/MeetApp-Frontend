@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { format, parseISO, isBefore } from 'date-fns';
@@ -10,6 +11,10 @@ import {
 	MdEvent,
 	MdPlace,
 } from 'react-icons/md';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+import { meetCancelRequest } from '../../../store/modules/meetup/actions';
 import { Container, Details } from './styles';
 import { TitlePage } from '../../../components/TitlePage';
 import { Button } from '../../../components/Button';
@@ -17,7 +22,11 @@ import Loading from '../../../components/Loading';
 import api from '../../../services/api';
 import history from '../../../services/history';
 
+const MySwal = withReactContent(Swal);
+
 export default function Show({ match }) {
+	const dispatch = useDispatch();
+
 	const [meetup, setMeetup] = useState({});
 	const [loading, setLoading] = useState(false);
 
@@ -28,21 +37,25 @@ export default function Show({ match }) {
 	 */
 	useEffect(() => {
 		const loadDetailMeetup = async () => {
-			setLoading(true);
+			try {
+				setLoading(true);
 
-			const response = await api.get(`/meetups/${id}`);
-			const { data } = response;
+				const response = await api.get(`/meetups/${id}`);
+				const { data } = response;
 
-			data.passed = isBefore(parseISO(data.date), new Date());
+				data.passed = isBefore(parseISO(data.date), new Date());
 
-			data.date = format(
-				parseISO(data.date),
-				"d 'de' MMMM', às ' H'hs'",
-				{ locale: pt }
-			);
+				data.date = format(
+					parseISO(data.date),
+					"d 'de' MMMM', às ' H'hs'",
+					{ locale: pt }
+				);
 
-			setMeetup(data);
-			setLoading(false);
+				setMeetup(data);
+				setLoading(false);
+			} catch (error) {
+				history.push('/dashboard');
+			}
 		};
 
 		loadDetailMeetup();
@@ -53,7 +66,21 @@ export default function Show({ match }) {
 	}
 
 	function handleCancel() {
-		history.push('/meetups/');
+		MySwal.fire({
+			title: 'Tem certeza que quer cancelar o Meetup?',
+			text: 'Essa ação é irreversível.',
+			type: 'warning',
+			showCancelButton: true,
+			heightAuto: false,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			cancelButtonText: 'Não',
+			confirmButtonText: 'Sim, cancelar!',
+		}).then(result => {
+			if (result.value) {
+				dispatch(meetCancelRequest(id));
+			}
+		});
 	}
 
 	return (
