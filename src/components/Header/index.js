@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { MdArrowBack } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { Container, Wrapper, Profile } from './styles';
 import { logoutRequest } from '../../store/modules/auth/actions';
@@ -36,7 +37,7 @@ export default function Header() {
 					</div>
 
 					<button type="button" onClick={handleLogout}>
-						SAIR
+						<MdArrowBack color="#FFF" size={16} /> SAIR
 					</button>
 				</Profile>
 			</Wrapper>

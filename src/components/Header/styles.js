@@ -83,6 +83,14 @@ export const Profile = styled.div`
 		font-weight: bold;
 		transition: all 0.25s ease-in;
 
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		svg {
+			margin-right: 5px;
+		}
+
 		&:hover {
 			background-color: ${darken(0.08, settings.primaryColor)};
 		}
