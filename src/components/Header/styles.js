@@ -9,6 +9,7 @@ export const Container = styled.header`
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.3);
 	transition: all 0.25s ease-in;
+	z-index: 1;
 
 	${props =>
 		props.top > 75 &&
