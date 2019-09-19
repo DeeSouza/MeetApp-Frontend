@@ -16,7 +16,7 @@ export const Container = styled.div`
 				opacity: 0;
 			}
 			to {
-				margin-top: 50px;
+				margin-top: 30px;
 				opacity: 1;
 			}
 		}

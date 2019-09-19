@@ -51,10 +51,12 @@ export default function Dashboard() {
 		<Container>
 			<TitlePage>
 				<h1>MEUS MEETUPS</h1>
-				<Button type="button" secondary>
-					<MdAddCircleOutline color="#FFf" size={16} />
-					NOVO MEETUP
-				</Button>
+				<Link to="/meetups/create">
+					<Button type="button" secondary>
+						<MdAddCircleOutline color="#FFf" size={16} />
+						NOVO MEETUP
+					</Button>
+				</Link>
 			</TitlePage>
 
 			{loading ? (

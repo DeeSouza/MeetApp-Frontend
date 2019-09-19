@@ -7,7 +7,30 @@ import {
 	meetUpdateFailure,
 	meetCancelSuccess,
 	meetCancelFailure,
+	meetCreateSuccess,
+	meetCreateFailure,
 } from './actions';
+
+/**
+ * Create a meetup
+ * @param {object} payload
+ */
+
+export function* createMeet({ payload }) {
+	try {
+		console.tron.log(payload);
+		yield call(api.post, '/meetups', payload.meet);
+		toast.success('Yeeah! Meetup atualizado com sucesso!');
+
+		yield put(meetCreateSuccess({}));
+	} catch (error) {
+		// Call Action (PUT)
+		yield put(meetCreateFailure());
+
+		// Alert
+		toast.error(error.response.data.error);
+	}
+}
 
 /**
  * Update meetup
@@ -33,6 +56,10 @@ export function* updateMeet({ payload }) {
 	}
 }
 
+/**
+ *
+ * @param {string} payload
+ */
 export function* cancelMeet({ payload }) {
 	try {
 		yield call(api.delete, `meetups/${payload.id}`);
@@ -55,4 +82,5 @@ export function* cancelMeet({ payload }) {
 export default all([
 	takeLatest('@meet/UPDATE_REQUEST', updateMeet),
 	takeLatest('@meet/CANCEL_REQUEST', cancelMeet),
+	takeLatest('@meet/CREATE_REQUEST', createMeet),
 ]);

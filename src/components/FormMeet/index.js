@@ -14,9 +14,7 @@ const schema = Yup.object().shape({
 	file_id: Yup.string().required('Esse campo é obrigatório.'),
 	localization: Yup.string().required('Esse campo é obrigatório.'),
 	description: Yup.string().required('Esse campo é obrigatório.'),
-	date: Yup.string('Esse campo é obrigatório.').required(
-		'Esse campo é obrigatório.'
-	),
+	date: Yup.string().required('Esse campo é obrigatório.'),
 });
 
 export default function FormMeet({ meet, onSubmit, loading }) {
@@ -45,7 +43,7 @@ export default function FormMeet({ meet, onSubmit, loading }) {
 					placeholder="Localização do Meetup"
 				/>
 
-				<Button info type="submit" loading={loading}>
+				<Button info type="submit" loading={loading ? 1 : 0}>
 					{loading ? (
 						<FaSpinner color="#FFF" size={16} />
 					) : (
@@ -64,7 +62,11 @@ FormMeet.propTypes = {
 		title: PropTypes.string,
 		localization: PropTypes.string,
 		date: PropTypes.instanceOf(Date),
-	}).isRequired,
+	}),
 	onSubmit: PropTypes.func.isRequired,
 	loading: PropTypes.bool.isRequired,
+};
+
+FormMeet.defaultProps = {
+	meet: {},
 };

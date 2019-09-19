@@ -35,12 +35,13 @@ export default function DatePicker({ name }) {
 				ref={ref}
 				locale={pt}
 				showTimeSelect
-				timeIntervals={15}
+				timeIntervals={30}
+				placeholderText="Escolha a Data"
 				timeCaption="Horas"
 				dateFormat="Pp"
 				minDate={subDays(new Date(), 0)}
 			/>
-			{error && <span>Esse campo é obrigatório</span>}
+			{error && <span>Esse campo é obrigatório.</span>}
 		</>
 	);
 }

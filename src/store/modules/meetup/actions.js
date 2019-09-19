@@ -1,3 +1,23 @@
+// Actions Create
+export function meetCreateRequest(meet) {
+	return {
+		type: '@meet/CREATE_REQUEST',
+		payload: { meet },
+	};
+}
+
+export function meetCreateSuccess() {
+	return {
+		type: '@meet/CREATE_SUCCESS',
+	};
+}
+
+export function meetCreateFailure() {
+	return {
+		type: '@meet/CREATE_FAILURE',
+	};
+}
+
 // Actions Update
 export function meetUpdateRequest(meet, id) {
 	return {
@@ -6,10 +26,9 @@ export function meetUpdateRequest(meet, id) {
 	};
 }
 
-export function meetUpdateSuccess(meet) {
+export function meetUpdateSuccess() {
 	return {
 		type: '@meet/UPDATE_SUCCESS',
-		payload: { meet },
 	};
 }
 
