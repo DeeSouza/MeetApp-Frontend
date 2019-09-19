@@ -16,6 +16,9 @@ import ShowMeetup from '../pages/Meetups/Show';
 import EditMeetup from '../pages/Meetups/Edit';
 import CreateMeetup from '../pages/Meetups/Create';
 
+// Páginas User
+import ShowUser from '../pages/Users';
+
 export default function Routes() {
 	return (
 		<Switch>
@@ -26,6 +29,8 @@ export default function Routes() {
 			<Route path="/meetups/create" isPrivate component={CreateMeetup} />
 			<Route path="/meetups/edit/:id" isPrivate component={EditMeetup} />
 			<Route path="/meetups/:id" isPrivate component={ShowMeetup} />
+
+			<Route path="/profile" isPrivate component={ShowUser} />
 		</Switch>
 	);
 }
