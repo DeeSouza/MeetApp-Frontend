@@ -39,5 +39,6 @@ Desafio final do bootcamp da RocketSeat. Uma aplicação para gerenciamento de m
 
 - ESLint
 - Prettier
+- Editor Config
 - Reactotron
 - Reactotron Redux + Saga Plugin
