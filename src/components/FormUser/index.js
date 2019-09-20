@@ -13,13 +13,19 @@ const schema = Yup.object().shape({
 		.email('Formato de e-mail inválido. Ex: email@domain.com')
 		.required('Esse campo é obrigatório.'),
 	oldPassword: Yup.string(),
-	password: Yup.string()
-		.min(6)
-		.when('oldPassword', (oldPassword, field) =>
-			oldPassword ? field.required() : field
-		),
+	password: Yup.string().when('oldPassword', (oldPassword, field) =>
+		oldPassword
+			? field
+					.required('Esse campo é obrigatório.')
+					.min(6, 'A senha precisa ter no mínimo 6 caracteres.')
+			: field
+	),
 	confirmPassword: Yup.string().when('password', (password, field) =>
-		password ? field.required().oneOf([Yup.ref('password')]) : field
+		password
+			? field
+					.required('Esse campo é obrigatório.')
+					.oneOf([Yup.ref('password')], 'As senhas não conferem.')
+			: field
 	),
 });
 
@@ -68,8 +74,8 @@ export default function FormUser({ profile, onSubmit, loading }) {
 
 FormUser.propTypes = {
 	profile: PropTypes.shape({
-		title: PropTypes.string,
-		localization: PropTypes.string,
+		name: PropTypes.string,
+		email: PropTypes.string,
 	}),
 	onSubmit: PropTypes.func.isRequired,
 	loading: PropTypes.bool.isRequired,

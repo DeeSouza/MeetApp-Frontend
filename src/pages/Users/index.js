@@ -13,8 +13,7 @@ export default function Users() {
 	const loadingSave = useSelector(state => state.user.loading);
 
 	function handleSubmit(data) {
-		console.tron.log(data);
-		// dispatch(updateUserRequest(data));
+		dispatch(updateUserRequest(data));
 	}
 
 	return (

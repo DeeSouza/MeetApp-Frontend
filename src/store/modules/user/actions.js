@@ -25,21 +25,17 @@ export function createUserFailure() {
 
 // Update User
 
-
-export function updateUserRequest(name, email, password) {
+export function updateUserRequest(data) {
 	return {
 		type: '@user/UPDATE_REQUEST',
-		payload: {
-			name,
-			email,
-			password,
-		},
+		payload: { data },
 	};
 }
 
-export function updateUserSuccess() {
+export function updateUserSuccess(data) {
 	return {
 		type: '@user/UPDATE_SUCCESS',
+		payload: { data },
 	};
 }
 

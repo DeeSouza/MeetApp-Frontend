@@ -26,6 +26,7 @@ export default function user(state = INITIAL_STATE, action) {
 			}
 			case '@user/UPDATE_SUCCESS': {
 				draft.loading = false;
+				draft.profile = action.payload.data;
 				break;
 			}
 			case '@user/UPDATE_FAILURE': {
