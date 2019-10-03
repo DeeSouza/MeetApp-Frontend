@@ -45,3 +45,13 @@ Essa aplicação é para organizadores de meetups e não conta com funcionalidad
 - Editor Config
 - Reactotron
 - Reactotron Redux + Saga Plugin
+
+## Reactotron Config
+
+`src/config/ReactotronConfig.js`
+
+| Item | Value     |
+| ---- | --------- |
+| Port | 9090      |
+| Host | localhost |
+---
