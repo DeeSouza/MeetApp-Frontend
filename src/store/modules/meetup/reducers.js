@@ -29,10 +29,10 @@ export default function meet(state = INITIAL_STATE, action) {
 				draft.loading = true;
 				break;
 			case '@meet/CANCEL_SUCCESS':
-				draft.loading = true;
+				draft.loading = false;
 				break;
 			case '@meet/CANCEL_FAILURE':
-				draft.loading = true;
+				draft.loading = false;
 				break;
 			default:
 		}

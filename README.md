@@ -1,10 +1,12 @@
 # MEETAPP - FRONTEND WEB
 
-![reactbadge](https://img.shields.io/badge/16.9.0-React-blue?style=flat-square&logo=react)
-![reactbadge](https://img.shields.io/badge/1.38.0-version-orange?style=flat-square&logo=visual-studio-code)
-![reactbadge](https://img.shields.io/badge/1.17.3-version-red?style=flat-square&logo=yarn)
+![1](https://img.shields.io/badge/16.9.0-React-blue?style=flat-square&logo=react)
+![2](https://img.shields.io/badge/1.38.0-Visual%20Studio%20Code-orange?style=flat-square&logo=visual-studio-code)
+![3](https://img.shields.io/badge/1.17.3-Yarn-lightblue?style=flat-square&logo=yarn)
 
-Desafio final do bootcamp da RocketSeat. Uma aplicação para gerenciamento de meetups. Esse aplicação consiste em criar meetups.
+> Desafio final do bootcamp da RocketSeat.
+
+Essa aplicação é para organizadores de meetups e não conta com funcionalidades de inscrição.
 
 ## Install
 
@@ -24,8 +26,9 @@ Desafio final do bootcamp da RocketSeat. Uma aplicação para gerenciamento de m
 - React Redux
 - Redux Saga
 - React Hooks
+- Redux Persist
 - Styled Components
-- React Icons
+- React Native Vector Icons
 - Date FNS
 - Yup
 - Toastify

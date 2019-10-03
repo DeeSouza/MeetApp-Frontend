@@ -15,14 +15,14 @@ import {
  * Create a meetup
  * @param {object} payload
  */
-
 export function* createMeet({ payload }) {
 	try {
-		console.tron.log(payload);
 		yield call(api.post, '/meetups', payload.meet);
 		toast.success('Yeeah! Meetup atualizado com sucesso!');
 
 		yield put(meetCreateSuccess({}));
+
+		history.push('/dashboard');
 	} catch (error) {
 		// Call Action (PUT)
 		yield put(meetCreateFailure());
@@ -47,6 +47,7 @@ export function* updateMeet({ payload }) {
 		toast.success('Yeeah! Meetup atualizado com sucesso!');
 
 		yield put(meetUpdateSuccess(response));
+		history.push('/dashboard');
 	} catch (error) {
 		// Call Action (PUT)
 		yield put(meetUpdateFailure());
@@ -57,7 +58,7 @@ export function* updateMeet({ payload }) {
 }
 
 /**
- *
+ * Cancel meetapp
  * @param {string} payload
  */
 export function* cancelMeet({ payload }) {

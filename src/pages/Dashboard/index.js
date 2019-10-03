@@ -28,20 +28,25 @@ export default function Dashboard() {
 			setLoading(true);
 			const response = await api.get('users/meetups_owner');
 
-			const data = response.data.map(meet => {
-				return {
-					...meet,
-					date: format(
-						parseISO(meet.date),
-						"d 'de' MMMM', às ' H'hs'",
-						{ locale: pt }
-					),
-					passed: isBefore(parseISO(meet.date), new Date()),
-				};
-			});
+			try {
+				const data = response.data.map(meet => {
+					return {
+						...meet,
+						date: format(
+							parseISO(meet.date),
+							"d 'de' MMMM', às ' H'hs'",
+							{ locale: pt }
+						),
+						passed: isBefore(parseISO(meet.date), new Date()),
+					};
+				});
 
-			setMeetups(data);
-			setLoading(false);
+				setMeetups(data);
+			} catch (error) {
+				setMeetups([]);
+			} finally {
+				setLoading(false);
+			}
 		};
 
 		loadMeetups();

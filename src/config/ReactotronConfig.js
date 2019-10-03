@@ -5,7 +5,7 @@ import reactotronSaga from 'reactotron-redux-saga';
 if (process.env.NODE_ENV === 'development') {
 	const tron = Reactotron.configure({
 		name: 'MeetApp',
-		port: 3333,
+		port: 9090,
 		host: 'localhost',
 	})
 		.use(reactotronRedux())
