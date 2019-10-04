@@ -47,7 +47,7 @@ export default function Show({ match }) {
 
 				data.date = format(
 					parseISO(data.date),
-					"d 'de' MMMM', às ' H'hs'",
+					"d 'de' MMMM', às 'H'hs'",
 					{ locale: pt }
 				);
 

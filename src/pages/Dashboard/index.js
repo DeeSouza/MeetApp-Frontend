@@ -34,7 +34,7 @@ export default function Dashboard() {
 						...meet,
 						date: format(
 							parseISO(meet.date),
-							"d 'de' MMMM', às ' H'hs'",
+							"d 'de' MMMM', às 'H'hs'",
 							{ locale: pt }
 						),
 						passed: isBefore(parseISO(meet.date), new Date()),
