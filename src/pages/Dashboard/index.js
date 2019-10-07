@@ -26,7 +26,7 @@ export default function Dashboard() {
 	useEffect(() => {
 		const loadMeetups = async () => {
 			setLoading(true);
-			const response = await api.get('subscriptions/owner');
+			const response = await api.get('meetups/owner');
 
 			try {
 				const data = response.data.map(meet => {
