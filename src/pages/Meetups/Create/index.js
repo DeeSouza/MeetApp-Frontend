@@ -4,10 +4,10 @@ import { MdChevronLeft } from 'react-icons/md';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 import { Container } from './styles';
-import { TitlePage } from '../../../components/TitlePage';
-import FormMeet from '../../../components/FormMeet';
+import { TitlePage } from '~/components/TitlePage';
+import FormMeet from '~/components/FormMeet';
 
-import { meetCreateRequest } from '../../../store/modules/meetup/actions';
+import { meetCreateRequest } from '~/store/modules/meetup/actions';
 
 export default function Create() {
 	const dispatch = useDispatch();

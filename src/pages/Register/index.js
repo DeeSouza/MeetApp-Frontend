@@ -4,10 +4,10 @@ import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
-import Logo from '../../assets/images/meetapp-logo.svg';
-import { ButtonSubmit } from '../../components/ButtonSubmit';
+import Logo from '~/assets/images/meetapp-logo.svg';
+import { ButtonSubmit } from '~/components/ButtonSubmit';
 
-import { createUserRequest } from '../../store/modules/user/actions';
+import { createUserRequest } from '~/store/modules/user/actions';
 
 export default function Register() {
 	const loading = useSelector(state => state.user.loading);

@@ -8,11 +8,11 @@ import {
 } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { Container, ListMeet, Meet, NotMeet } from './styles';
-import { TitlePage } from '../../components/TitlePage';
-import { Button } from '../../components/Button';
-import Loading from '../../components/Loading';
+import { TitlePage } from '~/components/TitlePage';
+import { Button } from '~/components/Button';
+import Loading from '~/components/Loading';
 
-import api from '../../services/api';
+import api from '~/services/api';
 
 export default function Dashboard() {
 	const [meetups, setMeetups] = useState([]);

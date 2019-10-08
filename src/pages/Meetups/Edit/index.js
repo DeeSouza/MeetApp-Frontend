@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MdChevronLeft } from 'react-icons/md';
 import { format, parseISO } from 'date-fns';
-import { meetUpdateRequest } from '../../../store/modules/meetup/actions';
-import Loading from '../../../components/Loading';
-import { TitlePage } from '../../../components/TitlePage';
-import FormMeet from '../../../components/FormMeet';
+import { meetUpdateRequest } from '~/store/modules/meetup/actions';
+import Loading from '~/components/Loading';
+import { TitlePage } from '~/components/TitlePage';
+import FormMeet from '~/components/FormMeet';
 import { Container } from './styles';
 
-import api from '../../../services/api';
+import api from '~/services/api';
 
 export default function Edit({ match }) {
 	const dispatch = useDispatch();

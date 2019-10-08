@@ -48,6 +48,8 @@ Essa aplicação é para organizadores de meetups e não conta com funcionalidad
 
 ## Reactotron Config
 
+Para configurar o Reactotron verifique o arquivo abaixo e altere os valores se necessário:
+
 `src/config/ReactotronConfig.js`
 
 | Item | Value     |

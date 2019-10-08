@@ -14,13 +14,13 @@ import {
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
-import { meetCancelRequest } from '../../../store/modules/meetup/actions';
+import { meetCancelRequest } from '~/store/modules/meetup/actions';
 import { Container, Details } from './styles';
-import { TitlePage } from '../../../components/TitlePage';
-import { Button } from '../../../components/Button';
-import Loading from '../../../components/Loading';
-import api from '../../../services/api';
-import history from '../../../services/history';
+import { TitlePage } from '~/components/TitlePage';
+import { Button } from '~/components/Button';
+import Loading from '~/components/Loading';
+import api from '~/services/api';
+import history from '~/services/history';
 
 const MySwal = withReactContent(Swal);
 

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { FaSpinner } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginRequest } from '../../store/modules/auth/actions';
+import { loginRequest } from '~/store/modules/auth/actions';
 
-import { ButtonSubmit } from '../../components/ButtonSubmit';
-import Logo from '../../assets/images/meetapp-logo.svg';
+import { ButtonSubmit } from '~/components/ButtonSubmit';
+import Logo from '~/assets/images/meetapp-logo.svg';
 
 export default function Login() {
 	const dispatch = useDispatch(); // Actions
