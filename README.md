@@ -54,6 +54,6 @@ Para configurar o Reactotron verifique o arquivo abaixo e altere os valores se n
 
 | Item | Value     |
 | ---- | --------- |
-| Port | 9090      |
 | Host | localhost |
+| Port | 9090      |
 ---
