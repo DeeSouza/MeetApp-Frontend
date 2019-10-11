@@ -18,7 +18,7 @@ import {
 export function* createMeet({ payload }) {
 	try {
 		yield call(api.post, '/meetups', payload.meet);
-		toast.success('Yeeah! Meetup atualizado com sucesso!');
+		toast.success('Yeeah! Meetup criado com sucesso!');
 
 		yield put(meetCreateSuccess({}));
 

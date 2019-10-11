@@ -21,6 +21,8 @@ export default function Edit({ match }) {
 	const [loading, setLoading] = useState(false);
 	const { id } = match.params;
 
+	const create = false;
+
 	/**
 	 * Show meetup details
 	 */
@@ -65,6 +67,7 @@ export default function Edit({ match }) {
 					meet={meetup}
 					onSubmit={handleSubmit}
 					loading={loadingSave}
+					create={create}
 				/>
 			)}
 		</Container>

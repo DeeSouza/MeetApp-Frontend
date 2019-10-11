@@ -17,7 +17,7 @@ const schema = Yup.object().shape({
 	date: Yup.string().required('Esse campo é obrigatório.'),
 });
 
-export default function FormMeet({ meet, onSubmit, loading }) {
+export default function FormMeet({ meet, onSubmit, loading, create }) {
 	return (
 		<Container>
 			<Form
@@ -49,7 +49,7 @@ export default function FormMeet({ meet, onSubmit, loading }) {
 					) : (
 						<MdSave color="#FFf" size={16} />
 					)}
-					SALVAR MEETUP
+					{create ? 'CRIAR MEETUP' : 'SALVAR MEETUP'}
 				</Button>
 			</Form>
 		</Container>
@@ -65,6 +65,7 @@ FormMeet.propTypes = {
 	}),
 	onSubmit: PropTypes.func.isRequired,
 	loading: PropTypes.bool.isRequired,
+	create: PropTypes.bool.isRequired,
 };
 
 FormMeet.defaultProps = {

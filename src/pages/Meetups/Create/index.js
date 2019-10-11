@@ -14,6 +14,8 @@ export default function Create() {
 	const loadingSave = useSelector(state => state.meet.loading);
 	const userId = useSelector(state => state.user.profile.id);
 
+	const create = true;
+
 	function handleSubmit(data) {
 		data.date = format(new Date(data.date), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx");
 		data.user_id = userId;
@@ -32,7 +34,11 @@ export default function Create() {
 				</h1>
 			</TitlePage>
 
-			<FormMeet onSubmit={handleSubmit} loading={loadingSave} />
+			<FormMeet
+				onSubmit={handleSubmit}
+				loading={loadingSave}
+				create={create}
+			/>
 		</Container>
 	);
 }
